@@ -1,5 +1,10 @@
 # GSoC 2017: Web based GUI for GNU Radio applications
 
+## Who am I
+I am final year undergraduate student at Department of Electronics and Communication Engineering, Indian Institute of Technology Roorkee. I will be joining ____ for Ph.D. in Electrical and Computer Engineering with majors in Electrical Engineering. My area of interests revolve around Communication systems and I have developed web and software development as my hobby. My major motivation to apply to GSoC 2017 is to get involved in GNU Radio development.
+
+Note: ___ is the name of the university which I will be joining but not decided.
+
 ## Introduction
 Web based GUI are becoming more famous(used to, widespread) because of easy to use and easy to view outputs. Currently GNU Radio works on a standalone system (many times connected to a hardware). The output of GNU Radio is displayed using QT GUI framework. In addition to that, various input widgets of QT framework are used to interact with the ongoing simulations. The QT framework allows the input/output operations only from the system running the simulation.
 
@@ -77,8 +82,7 @@ My tentative GSoC timeline is given below:
 
 
 
-## Personal background and previous experience
-I am final year undergraduate student at Department of Electronics and Communication Engineering, Indian Institute of Technology Roorkee. I will be joining ____ for Ph.D. in Electrical and Computer Engineering with majors in Electrical Engineering. My area of interests revolve around Communication systems and I have developed web and software development as my hobby. My major motivation to apply to GSoC 2017 is to get involved in GNU Radio development.
+## Previous experience in programming
 
 My experience in programming and in particular open-source development is as follows:
 - __Implementation of Bluetooth Low Energy module in NS3__ [\[Link\]](https://github.com/kartikp1995/ns-3-dev-git/) - Designed and implemented Bluetooth Low Energy protocol stack in NS3. Initially developed the basic idea [here](https://github.com/kartikp1995/ns-3-dev-git/wiki/Development-of-BLE) and then implemented whole module within 4 weeks.
