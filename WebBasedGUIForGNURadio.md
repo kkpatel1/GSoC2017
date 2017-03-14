@@ -1,10 +1,5 @@
 # GSoC 2017: Web based GUI for GNU Radio applications
 
-## Who am I?
-I am a final year undergraduate student at Department of Electronics and Communication Engineering, Indian Institute of Technology Roorkee. I will be joining ____ for Ph.D. in Electrical and Computer Engineering with majors in Electrical Engineering. My area of interests revolve around Communication systems and I have developed web and software development as my hobby.
-
-Note: ___ is the name of the university which I will be joining but not decided.
-
 ## Introduction
 Currently GNU Radio works on a local system (many times connected to a hardware). The display of GNU Radio is displayed using QT GUI framework. In addition to that, various input widgets of QT framework are used to interact with the ongoing simulations. The QT framework contrains the input/output operations from the system running the simulation.
 
@@ -25,7 +20,7 @@ At present, GNU Radio plots various plots in the window based on QT Framework. S
 
 On the client side, a web browser requests a page from `server:port/?session-id=session_id`. In response to the request, the server sends the *Document* object corresponding to the session identified by `session_id`. Since, there is only one Document and session instance on the server, all web browsers receives same Document instance. Hence, changing the parameters or plot configurations will ensure the change is displayed to all clients viewing the document.
 
-## The porposed features
+## The proposed features
 A summary of proposed features are as follows:
 
 1. Following plots will be implemented for the web based GUI. Most plots are directly available in Bokeh library. Others can be developed by providing the formatted input values to existing plots in Bokeh library.
@@ -124,20 +119,24 @@ My tentative GSoC timeline is given below:
   If time permits: Create a common GRC block for sinks where including one block will show time sink, frequency sink and waterfall sink
 
 
-## Previous experience in programming
+## Personal background and previous experience in programming
+I am a final year undergraduate student at Department of Electronics and Communication Engineering, Indian Institute of Technology Roorkee. I will be joining ____ for Ph.D. in Electrical and Computer Engineering with majors in Electrical Engineering. My area of interests revolve around Communication systems and I have developed web and software development as my hobby.
+
+Note: ___ is the name of the university which I will be joining but not decided.
 
 My experience in programming and in particular open-source development is as follows:
 - __Implementation of Bluetooth Low Energy module in NS3__ [\[Link\]](https://github.com/kartikp1995/ns-3-dev-git/) - Designed and implemented Bluetooth Low Energy protocol stack in NS3. Initially developed the basic idea [here](https://github.com/kartikp1995/ns-3-dev-git/wiki/Development-of-BLE) and then implemented the module within 4 weeks.
 
-- [__Chief Technical Lead, Information Management Group (IMG), IIT Roorkee__](http://img.channeli.in) - IMG develops and maintains the IIT Roorkee Intranet & Internet systems. We manage the Institute website, Content Management System, Placement Portal and many other official applications for the institute. 
-   - I am responsible for all aspects of the backend stack including performance management and security. 
+- [__Chief Technical Lead, Information Management Group (IMG), IIT Roorkee__](http://img.channeli.in) - IMG develops and maintains the IIT Roorkee Intranet & Internet systems. We manage the Institute website, Content Management System, Placement Portal and many other official applications for the institute.
+   - I am responsible for all aspects of the backend stack including performance management and security.
    - Initiated changes in development cycle to optimize the resource usage of servers and reduce the load on servers and databases.
    - Develped and maintained the official placement portal of the institute containg more than 20,000 lines of codes. The student side interface which includes company information, application details and the interface for placement office which includes contact manager and related administrative tasks were developed based on Python/Django framework.
 
 - Since January 2017, I contributed to GNU Radio in order to get familiarize with organization and codebase. Following are my contributions to the code.
   - Pull request with the feature to _Duplicate flowgraph_ and _Save a Copy_ (PR: [#1188](https://github.com/gnuradio/gnuradio/pull/1188)).
-  - Solved issue [#1124](https://github.com/gnuradio/gnuradio/issues/1124)
-  - Solved issue [#1192](https://github.com/gnuradio/gnuradio/issues/1192)
+  - Pull request with the change `cout` to `gr::logger` (PR: [#1178](https://github.com/gnuradio/gnuradio/pull/1178))
+  - Solved issue [#1124](https://github.com/gnuradio/gnuradio/issues/1124): Added plot configuration options for Line2 in case of input type `Complex Messages` in QT GUI Time Sink block.
+  - Solved issue [#1192](https://github.com/gnuradio/gnuradio/issues/1192): Removed redundant configuration options in QT GUI Time Sink block.
 
 ## Secret codeword
 Cyberspectrum is the best spectrum.
