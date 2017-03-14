@@ -28,13 +28,13 @@ On the client side, a web browser requests a page from `server:port/?session-id=
 A summary of suggested features are as follows:
 
 1. Following plots will be implemented for the web based GUI. Most plots are directly available in Bokeh library. Others can be developed by providing the formatted input values to existing plots in Bokeh library.
-   - Constellation Display
-   - Histogram Display
+   - Constellation Sink
+   - Histogram Sink
    - BER Sink
-   - TimeRaster Display
-   - Frequency Display
-   - Time Display
-   - Waterfall Display
+   - Frequency Sink
+   - Time Sink
+   - Waterfall Sink
+   - TimeRaster Sink (If time permits)
 
 2. Following input widgets will be implemented for the web based GUI. All these widgets are already available in Bokeh library.
    - Checkbox
@@ -62,9 +62,9 @@ In the sample program, whole program is based on python. But in general, python 
 1. __sink_impl__ : C++ class which will be inherited. Contains functions related to processing of the inputs.
 2. __sink__ : Python class inherited from __sink_impl__ class containing methods to configure and communicate with the plots. All processing of the data will be done in functions of __sink_impl__.
 3. __widgets__ : Bokeh provides all required input widgets with appropriate mechanism for javascript as well as backend callbacks. Hence, this class will take care of all such widgets and their corresponding python callback functions.
-#4. __forms/toolbars__ : The group of widgets that forms a toolbar. For an example: in frequency plots, one can have a range slider for the range of frequency of interest, button for "autorange" and similarly more. Defining a group of all these makes the system moduler and easy to extend.
+4. __forms/toolbars__ (If time permits) : The group of widgets that forms a toolbar. For an example: in frequency plots, one can have a range slider for the range of frequency of interest, button for "autorange" and similarly more. Defining a group of all these makes the system moduler and easy to extend.
 
-Note: The _sink_impl_ and _sink_ is a generic term to point all sinks. e.g. in case of time sink, it will be __time_sink_f_impl__ and __time_sink_f__.
+Note: The _sink_impl_ and _sink_ is a generic term to point all sinks. e.g. in case of floating point time sink, it will be __time_sink_f_impl__ and __time_sink_f__.
 
 
 Based on this, overall flow of the OOT module `gr-webgui` is explained below.
@@ -77,9 +77,50 @@ Please note that, at present, we are considering that the output plots are displ
 ## Timeline
 The timeline provided by Google suggests a 1 month of community bonding period. But since, the registration for graduate studies at ___ are around end of August, I will be mostly available for the duration of May-August except 3-4 days sometimes in June or July to complete my visa process. Although I will keep on contributing to GNU Radio, I would like to start coding from 20th May, so that the three month duration ends at 20th August to avoid any loss of work during the registration process at the University.
 
+The documentation will be done in the code while writing the code.
 My tentative GSoC timeline is given below:
 - __Week 1__ :
-
+  - Initial setup: Define "Generate Options" for Web GUI
+  - Complete coding _time_sink_f_impl.cc_
+  - Start time sink for float inputs
+- __Week 2__ :
+  - Complete complete time sink for float inputs
+  - Conclude Time sink for complex inputs
+  - Create GRC block for Time Sink
+- __Week 3__ :
+  - Add python and GRC example for time sink
+  - Complete input widgets: _label_ and _textbox_
+  - Define GRC blocks
+- __Week 4__ :
+  - Complete frequency sink
+- __Week 5__ :
+  - Add GRC block for frequency sinks
+  - Add python and GRC example for frequency sink
+  - Start Constellation sink
+- __Week 6__ :
+  - Complete Constellation sink
+  - Add GRC block for Constellation sink
+- __Week 7__ :
+  - Add python and GRC example for Constellation sink
+  - Complete BER sink
+  - Add GRC block for BER sink
+- __Week 8__ :
+  - Add python and GRC example for BER sink
+  - Conclude Checkbox and add GRC block
+  - Conclude Chooser (dropdown) and add GRC block
+- __Week 9__ :
+  - Conclude Push Button and add GRC block
+  - Conclude slider and add GRC block
+- __Week 10__ :
+  - Conclude range slider and add GRC block
+  - Conclude tab pane and add GRC block
+- __Week 11__:
+  - Complete waterfall sink
+  - Add GRC block for waterfall sink
+  - Add python and grc example for waterfall sink
+- __Week 12__ :
+  Conclude the project <br>
+  If time permits: Create a common GRC block for sinks where including one block will show time sink, frequency sink and waterfall sink
 
 
 ## Previous experience in programming
@@ -94,7 +135,7 @@ My experience in programming and in particular open-source development is as fol
   - Solved issue [#1124](https://github.com/gnuradio/gnuradio/issues/1124)
   - Solved issue [#1192](https://github.com/gnuradio/gnuradio/issues/1192)
 
-## Secret codewords
+## Secret codeword
 Cyberspectrum is the best spectrum.
 
 ## Conclusion
