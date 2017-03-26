@@ -65,7 +65,7 @@ In software development, the new paradigm is moving towards web based systems be
 In the proposal, the focus is on the flow of the final OOT module and implementation details. The details of minute tasks like arrangement of plots \& widgets inside the output, the color and labeling of the plots etc. have been intentionally left out but will be implemented taking \texttt{gr-qtgui} module as guideline.
 
 
-\subsection{Advantages of the project}
+\subsection{Primary features of the project}
 \begin{enumerate}
 \item Alternative output mechanism other than Python QT framework
 \item Real-time visualization and interaction with the program remotely
@@ -74,11 +74,10 @@ In the proposal, the focus is on the flow of the final OOT module and implementa
 \end{enumerate}
 
 \section{Proposed workflow of the module}
-%mechanism and comparison with\\ \texttt{gr-qtgui}}
 
 At present, GNU Radio plots various plots in the window based on QT Framework. Similarly, the proposed module will show various plots through HTML page served from the system running the simulations. This section explains working of the module from perspectives of the User and GNU Radio.
 
-The working prototype of entire project is available \href{https://github.com/kartikp1995/gr-htmlgui/}{here} \cite{htmlGui}. The file \href{https://github.com/kartikp1995/gr-htmlgui/blob/master/python/time_sink_f.py}{time$\_$sink$\_$f.py} implements basic sink for floating point input and the file \href{https://github.com/kartikp1995/gr-htmlgui/blob/master/examples/top_block.py}{top$\_$block.py} is an example on how the sinks will be used. You can review the output \href{http://terminal.kartikpatel.in:5006/?bokeh-session-id=ARfUOyu0urukFhh3TmXRqHari59Bo1w2O4GGnseztvCL}{here}.
+The working prototype of entire project is available \href{https://github.com/kartikp1995/gr-htmlgui/}{here} \cite{htmlGui}. The file \href{https://github.com/kartikp1995/gr-htmlgui/blob/master/python/time_sink_f.py}{time$\_$sink$\_$f.py} implements basic sink for floating point input and the file \href{https://github.com/kartikp1995/gr-htmlgui/blob/master/examples/top_block.py}{top$\_$block.py} is an example on how the sinks will be used. You can review the output \href{http://terminal.kartikpatel.in:5006/?bokeh-session-id=h4NyPINXVEniemWudNItOhpEwM1U9NvoC3WaHu1Dmfyr}{here}.
 
 \subsection{Using the module - User's perspective}
 The usage of module will be similar to the current QT based GUI. The steps will be as follows:
@@ -87,8 +86,10 @@ The usage of module will be similar to the current QT based GUI. The steps will 
 \item A optional variable \texttt{session\_id} will allow the user to assign a ID to the session of the program. The program will be identified by the session ID.
 \item The sinks and widgets from \textit{BokehGUI} module will be included in flowcharts according to need.
 \item Upon running the simulation, a server process will be started.
-\item The user opens the URL \texttt{server:port/?- }\texttt{session-id=session\_id} through the web browser over the network. The response will be the \textit{Document} instance corresponding to the session identified by \texttt{session\_id}.
+\item The user opens the URL \texttt{server:port/?session-id=session\_id} through the web browser over the network. The response will be the \textit{Document} instance corresponding to the session identified by \texttt{session\_id}.
 \end{enumerate}
+Note: As of now, the layout of HTML will be a default layout. If time permits, I am planning to include a jQuery based library \cite{arrange} to arrange the plots and widgets from the frontend.
+
 
 \subsection{Interaction with GR - GR's perspective}
 In this subsection, the overall backend workflow of module is explained in main GNU Radio software. In addition to that, the working of major features of the module is introduced.
@@ -114,7 +115,7 @@ class top_block(gr.top_block):
     self.session = push_session(self.doc, session_id=session_id)
 \end{lstlisting}
 }
-In here, the line \#5 and \#6, initialize a \textit{Document} instance and a \textit{Session} instance. All the clients connected to the session identified by \texttt{session\_id}, will have a single \textit{Document} instance. Hence, there is only one Document and session instance on the server. It implies changing the parameters or plot configurations on one client will ensure the change is displayed to all clients viewing the same document.
+Here, the line \#5 and \#6, initialize a \textit{Document} instance and a \textit{Session} instance. All the clients connected to the session identified by \texttt{session\_id}, will have a single \textit{Document} instance. Hence, there is only one Document and session instance on the server. It implies changing the parameters or plot configurations on one client will ensure the change is displayed to all clients viewing the same document.
 
 \begin{lstlisting}[language=Python]
 self.htmlgui_time_sink_f_0 = htmlgui.time_sink_f(self.doc, 0.1)
@@ -287,8 +288,12 @@ August 13 - August 20 & Wrap up the project\\
 \end{tabular}
 \end{table}
 
-The entire project will be open-source available on GitHub, included the GPLv3 licensed code of GSoC. I am also planning to publish my weekly progress on \textit{discuss-gnuradio forum} in order to keep my work transparent.
+I am also planning to publish my weekly progress on \textit{discuss-gnuradio forum} in order to keep my work transparent.
 
+\section{License}
+The entire project will be open-source, available on GitHub, included the GPLv3 licensed code of GSoC.
+
+\section{Acknowledgement}
 I have read the rules of conduct for GSoC of GNU Radio and acknowledge the tree strikes rule. Therefore I am going to intensively communicate with the mentor and keep my work transparent and my working progress up to date.
 
 \section{Personal background and previous experience}
@@ -325,6 +330,16 @@ In addition to the contributions to the code, I have been involved in the GNU Ra
 Note: Due to copyright and other constraints, the code for BLE stack in NS3 and code by IMG, IIT Roorkee can't be published.
 
 I have also worked on several research projects. For details of projects and other details, please refer to my resume available \href{http://kartikpatel.in/Backup/Documents/CV.pdf}{here}.
+
+\subsection*{Contact details}
+\begin{tabular}{lcl}
+Address&:& Ahmedabad, Gujarat, India\\
+Email&:&\href{mailto:kartikpatel1995@gmail.com}{kartikpatel1995@gmail.com} \\
+Website&:& \url{http://kartikpatel.in}\\
+Github&:&\url{https://github.com/kartikp1995/}\\
+Skype ID & : & kartikp1995\\
+LinkedIn & : & \url{https://www.linkedin.com/in/kkpatel95/}
+\end{tabular}
 
 \section{Conclusion}
 An overview of the module for web based GUI for GNU Radio is given in the previous sections. With example of a small scale implementation, the flow of development is explained. All tasks are divided into proper timeline so that mentor(s) and community can track the progress of the project.
