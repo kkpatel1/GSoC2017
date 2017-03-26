@@ -1,4 +1,4 @@
-### The following proposal is outdated. Please look [BokehGUIForGNURadio.pdf](/BokehGuiForGNURadio.pdf)
+#### The following proposal is outdated. Please look for [BokehGUIForGNURadio.pdf](/BokehGuiForGNURadio.pdf)
 
 # GSoC 2017: Web based GUI for GNU Radio applications
 
