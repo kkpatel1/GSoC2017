@@ -2,31 +2,31 @@
 
 \usepackage{listings}
 \usepackage{color}
- 
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
+
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
- 
+
 \lstset{style=mystyle}
 
 \usepackage[colorlinks = true,
@@ -48,21 +48,25 @@
 
 \newcommand{\foo}{\color{black}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
 
-\title{GSoC 2017: A HTML-based GUI for GNU Radio}
+
+\title{\texttt{gr-bokehgui}: A web based GUI for GNU Radio}
 \author{Kartik Patel}
 \begin{document}
 \newcommand{\pull}[1]{\href{https://github.com/gnuradio/gnuradio/pull/#1}{\# #1}}
 
+\begin{center}
+\Large Google Summer of Code 2017
+\end{center}
 
-
-\maketitle
+{\let\newpage\relax\maketitle}
 
 \section{Introduction}
-Currently, GNU Radio works on a local system (many times connected to a hardware). The display of GNU Radio is based on QT GUI framework. In addition to that, various input widgets of QT framework are used to interact with the ongoing simulations. The QT framework constrains the input/output operations from the system running the simulation. 
+Currently, GNU Radio works on a local system (many times connected to a hardware). The display of GNU Radio is based on QT GUI framework. In addition to that, various input widgets of QT framework are used to interact with the ongoing simulations. The QT framework constrains the input/output operations from the system running the simulation.
 
 In software development, the new paradigm is moving towards web based systems because of simple usability for the user and wide range of available frameworks for developers. In this project, an OOT module for web-based GUI is proposed for GNU Radio. The primary focus of the project will be a display mechanism which will be used to interact with ongoing simulation based on the parameters provided through interactive HTML inputs.
 
 In the proposal, the focus is on the flow of the final OOT module and implementation details. The details of minute tasks like the arrangement of plots \& widgets inside the output, the color, and labeling of the plots etc. have been intentionally left out but will be implemented taking \textit{gr-qtgui} module as a guideline.
+
 
 \subsection{Primary features of the project}
 \begin{enumerate}
@@ -81,9 +85,9 @@ The working prototype of entire project is available \href{https://github.com/ka
 \subsection{Using the module - User's perspective}
 The usage of module will be similar to the current QT based GUI. The steps will be as follows:
 \begin{enumerate}
-\item The user selects the \textit{BokehGUI} from the options menu. 
+\item The user selects the \textit{BokehGUI} from the options menu in generation options.
 \item A optional variable \texttt{session\_id} will allow the user to assign a ID to the session of the program. The program will be identified by the session ID.
-\item The sinks and widgets from \textit{BokehGUI} module will be included in flowcharts according to need.
+\item The sinks and widgets from \textit{BokehGUI} module will be included in flowcharts according to requirements.
 \item Upon running the simulation, a server process will be started.
 \item The user opens the URL \texttt{server:port/?session-id=session\_id} through the web browser over the network. The response will be the \textit{Document} instance corresponding to the session identified by \texttt{session\_id}.
 \end{enumerate}
@@ -93,7 +97,7 @@ Note: As of now, the layout of HTML will be a default layout. If time permits, I
 \subsection{Interaction with GR - GR's perspective}
 In this subsection, the overall backend workflow of module is explained in main GNU Radio software. In addition to that, the working of major features of the module is introduced.
 
-In particular, this OOT module uses \texttt{Bokeh} \cite{bokeh} library will be used to setup the server, sessions, documents and plots. The figure \ref{fig:one} provides comparison of proposed mechanism with the current structure.
+In particular, this OOT module uses \texttt{Bokeh} \cite{bokeh} library will be used to setup the server, sessions, documents and plots. The overall structure and workflow of Bokeh based GUI is similar to the structure and workflow of the QT based GUI. The figure \ref{fig:one} provides comparison of proposed mechanism with the current structure.
 
 \begin{figure}[t]
 \includegraphics[width=\textwidth]{BokehGui/fundamental.png}
@@ -124,7 +128,7 @@ self.htmlgui_time_sink_f_0 = htmlgui.time_sink_f(self.doc, 0.1)
 
 It initializes and configures the time sink. More details on the sink implementation is explained in following section.
 
-\subsubsection{Understanding the implementation of sinks and widgets}
+\subsubsection{Proposed implementation of sinks and widgets}
 Consider a sample floating point \texttt{time\_sink\_f.py} in the following snippet.
 \vbox{
 \begin{lstlisting}[language=Python]
@@ -157,12 +161,12 @@ A constructor of the sink that connects the sink to \textit{Document} instance. 
   def work(self, input_items, output_items):
     new_data = dict()
     # Processing the input_items
-    self.ds.stream(new_data, rollover = 1000) 
+    self.ds.stream(new_data, rollover = 1000)
             # streaming to the Document instance
     return len(input_items[0])
 \end{lstlisting}
 }
-The function \texttt{work()} in the sink instance processes the data and stream the data to the Document instance through the datasource. 
+The function \texttt{work()} in the sink instance processes the data and stream the data to the Document instance through the datasource.
 
 In the sample program, only Python is used to explain the idea. But in general, Python is much slower than C++. Hence, the OOT module will have both Python and C++ code as structured in figure \ref{fig:two}. Python will be used to interact with the plots and other blocks whereas C++ will be used to pre-process the data before sending to the plots. This will ensure fast processing and easy implementation.
 
@@ -173,7 +177,7 @@ In the sample program, only Python is used to explain the idea. But in general, 
 \end{figure}
 
 \begin{enumerate}
-\item \textbf{sink\_impl} : C++ class which will be inherited. Contains functions related to processing of the data.
+\item \textbf{sink\_impl} : C++ class which will be inherited. Contains functions related to processing of the data. Note that the processing part of the sink will be almost same as the data processing in QT based GUI.
 \item \textbf{sink }: Python class inherited from \textbf{sink\_impl }class containing methods to configure and communicate with the plots. All processing of the data will be done in functions of \textbf{sink\_impl}.
 \item \textbf{widgets }: Bokeh provides all required input widgets with appropriate mechanism for javascript as well as backend callbacks. Hence, this class will take care of all such widgets and their corresponding python callback functions.
 \item \textbf{forms/toolbars} (If time permits) : The group of widgets that forms a toolbar. For an instance: in frequency plots, one can have a range slider for the range of frequency of interest, button for "autorange" and similarly more. Grouping all these makes the system modular and easy to extend.
@@ -204,8 +208,7 @@ A summary of proposed features are as follows:
 \item BER Sink
 \item Frequency Display
 \item Time Display
-\item Waterfall Display
-\item TimeRaster Display (If time permits)
+\item Waterfall Display (If time permits)
 \end{itemize}
 
 \item Following input widgets will be implemented for the web based GUI. All these widgets are already available in Bokeh library.
@@ -217,7 +220,7 @@ A summary of proposed features are as follows:
 \item Push Button
 \item Range Slider
 \item Slider
-\item Tab Panes
+%\item Tab Panes
 \end{itemize}
 
 \item Add GRC blocks for the Sinks
@@ -236,9 +239,9 @@ The necessary documentation will be done in parallel to to the development. Acco
 
 \begin{table}[h]
 \centering
-\renewcommand\arraystretch{1.3}\arrayrulecolor{black}
+\renewcommand\arraystretch{1.4}\arrayrulecolor{black}
 \caption{Timeline}\vskip -1.5ex
-\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{0.65\textwidth}}
+\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{0.7\textwidth}}
 \toprule
 \addlinespace[1.5ex]
 May 4 - May 20 & Define minute details of the projects like plot configuration parameters\\
@@ -247,41 +250,44 @@ May 21 - May 27 & Initial setup: Define "Generate Options" for Bokeh GUI\\
  & Complete coding \texttt{time\_sink\_f\_impl.cc}\\
  & Work on Python part of time sink for float inputs\\
 May 28 - June 3 & Complete time sink for float inputs\\
- & Conclude time sink for complex inputs \\ 
+ & Conclude time sink for complex inputs \\
  & Create GRC block for Time Sink\\
-June 4 - June 10 & Add Python and GRC example for time sink\\
- & Complete input widgets: Label and textbox\\
- & Define GRC blocks\\
-June 11 - June 17 & Complete frequency sink\\
 \end{tabular}
 \end{table}
 \newpage
 \begin{table}[h]
 \centering
 \renewcommand\arraystretch{1.3}\arrayrulecolor{black}
-\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{0.65\textwidth}}
+\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{0.7\textwidth}}
 \toprule
-\addlinespace[1.5ex]
-June 18 - June 24 & Add GRC block for frequency sinks\\
+\addlinespace[1.2ex]
+June 4 - June 10 & Add Python and GRC example for time sink\\
+ & Complete input widgets: Label and textbox\\
+June 11 - June 17 & Define GRC blocks for Label and textbox\\
+ & Start frequency sink\\
+June 18 - June 24 & Conclude frequency sink\\
+ & Add GRC block for frequency sinks\\
  & Add Python and GRC example for frequency sink\\
- & Start Constellation sink\\
 June 25 - July 1 & Complete Constellation sink\\
- & Add GRC block for Constellation sink\\
-July 2 - July 8 & Add Python and GRC example for Constellation sink\\
- & Complete BER sink \\
+July 2 - July 8 & Add GRC block for Constellation sink\\
+ & Add Python and GRC example for Constellation sink\\
+ & Start BER sink \\
+July 9 - July 15 & Complete BER sink\\
  & Add GRC block for BER sink\\
-July 9 - July 15 & Add Python and GRC example for BER sink\\
- & Conclude Checkbox and add GRC block\\
+ & Add Python and GRC example for BER sink\\
+July 16 - July 22 & Conclude Checkbox and add GRC block\\
  & Conclude Chooser (dropdown) and add GRC block\\
-July 16 - July 22 & Conclude Push button and add GRC block\\
+July 23 - July 29 & Conclude Push button and add GRC block\\
  & Conclude slider and add GRC block\\
-July 23 - July 29 & Conclude range slider and add GRC block\\
- & Conclude tab pane and add GRC block\\
-July 30 - August 5 & Complete waterfall sink\\
- & Add GRC block for waterfall sink\\
- & Add Python and GRC example for waterfall sink\\
-August 6 - August 12 & Complete remaining tasks\\
- & Initiate wrap up the project\\
+July 30 - August 5 & Complete Historgram sink\\
+ & Add GRC block for Histogram sink\\
+ & Add Python and GRC example for histogram sink\\
+ %& Conclude tab pane and add GRC block\\
+ %Complete waterfall sink\\
+ %& Add GRC block for waterfall sink\\
+ %& Add Python and GRC example for waterfall sink\\
+August 6 - August 12 & Conclude range slider and add GRC block\\
+ & Complete remaining tasks\\
 August 13 - August 20 & Wrap up the project\\
  & Submit the final report
 \end{tabular}
@@ -310,7 +316,7 @@ My experience in programming and in particular open-source development is as fol
 
 \item \href{http://img.channeli.in}{\textbf{Chief Technical Lead, Information Management Group (IMG), IIT Roorkee}} - IMG develops and maintains the IIT Roorkee Intranet \& Internet systems. We manage the Institute website, Content Management System, Placement Portal and many other official applications for the institute.
 \begin{itemize}
-\item I am responsible for all aspects of the backend stack including performance management and security. 
+\item I am responsible for all aspects of the backend stack including performance management and security.
 \item Initiated changes in development cycle to optimize the resource usage of servers and reduce the load on servers and databases.
 \item Developed and maintained the official placement portal of the institute containing more than 20,000 lines of codes. The student side interface which includes company information, application details and the interface for placement office which includes contact manager and related administrative tasks were developed based on Python/Django framework.
 \end{itemize}
@@ -323,7 +329,7 @@ My experience in programming and in particular open-source development is as fol
 \item Solved issue \pull{1192}: Removed redundant configuration options in QT GUI Time Sink block.
 \end{itemize}
 
-In addition to the contributions to the code, I have been involved in the GNU Radio mailing list to get in touch with the community. Although I had no need to ask doubts on the forum because of excellent tutorials and documentations over the Internet, I have tried to answer the queries according to my knowledge and capacity. I am highly interested to continue the contributions to GNU Radio even after the GSoC period. 
+In addition to the contributions to the code, I have been involved in the GNU Radio mailing list to get in touch with the community. Although I had no need to ask doubts on the forum because of excellent tutorials and documentations available over the Internet, I have tried to answer the queries based on my knowledge and capacity. I am highly interested to continue the contributions to GNU Radio even after the GSoC period.
 
 \end{itemize}
 Note: Due to copyright and other constraints, the code for BLE stack in NS3 and code by IMG, IIT Roorkee can't be published.
