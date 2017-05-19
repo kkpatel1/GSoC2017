@@ -23,7 +23,7 @@ The tasks for Week 0 is grouped as follows:
 
 This concludes the tasks for Week 0. A brief introduction about me and the module was added. I also added my way of being in touch with the organisation.
 
-[home]: http://kartikpatel.in
+[home]: /
 [gnuradio]: https://gnuradio.org
 [proposal]: BokehGuiForGNURadio.pdf
 [bokeh]: http://bokeh.pydata.org/en/latest/
