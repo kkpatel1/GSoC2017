@@ -6,6 +6,18 @@ permalink: /milestones/
 
 After discussion with mentor, we will be following a timeline as described below. We have changed the sequence of the features to be implemented based on the usage and necessity.
 
+
+[**8th May - 14th May: Introduction**][week0]
+ 1. Introducing to the community
+ 2. Finalized weekly update procedure
+ 3. Finalized repository structure
+
+[**15th May - 21st May: Planning**][week1]
+ 1. Refining the timeline and defining milestones of the project
+ 2. Finalize mechanism of starting the bokeh server and application
+ 3. Finalize the structure and dataflow of the module
+ 4. Understanding the Bokeh Library
+ 
 ---------------------------
 ### Phase 1 : Time sink and Frequnecy sink
 **22nd May - 28th May**:
@@ -70,3 +82,7 @@ After discussion with mentor, we will be following a timeline as described below
 **21st August - 29th August: Final Evaluation: Waterfall, Histrogram, Constellation and BER sink**
  1. Conclude previous works
  2. Submit final evaluation
+
+
+[week0]: /GSoC2017/2017/05/12/introduction.html
+[week1]: /GSoC2017/2017/05/19/planning.html
