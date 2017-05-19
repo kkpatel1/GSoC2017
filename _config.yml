@@ -17,7 +17,7 @@
 # Setup
 title: "gr-bokehgui: Web based display for GNURadio"
 url: "http://kartikpatel.in"
-baseurl: "/GSoC2017/"
+baseurl: "/GSoC2017"
 email: kartikpatel1995@gmail.com
 
 # About/Contact
