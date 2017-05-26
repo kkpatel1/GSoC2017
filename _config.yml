@@ -22,10 +22,12 @@ email: kartikpatel1995@gmail.com
 
 # About/Contact
 name: Kartik Patel
-url:  http://kartikpatel.in/
 email: kartikpatel1995@gmail.com
 description: I am Kartik Patel, a Google Summer of Code 2017 participant at GNU Radio. I will be working on development of a web based display for GNU Radio.
 github_username:  kartikp1995
+
+# Google Analytics
+google_analytics: UA-99988583-1
 
 # Build settings
 markdown: kramdown

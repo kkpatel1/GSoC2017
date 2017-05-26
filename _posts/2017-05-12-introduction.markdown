@@ -25,7 +25,7 @@ This concludes the tasks for Week 0. A brief introduction about me and the modul
 
 [home]: /
 [gnuradio]: https://gnuradio.org
-[proposal]: BokehGuiForGNURadio.pdf
+[proposal]: /GSoC2017/BokehGuiForGNURadio.pdf
 [bokeh]: http://bokeh.pydata.org/en/latest/
 [sebastian]: https://github.com/skoslowski
 [repo]: https://github.com/kartikp1995/gr-bokeh/
