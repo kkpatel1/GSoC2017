@@ -19,25 +19,25 @@ After discussion with mentor, we will be following a timeline as described below
  4. Understanding the Bokeh Library
  
 ---------------------------
-### Phase 1 : Time sink and Frequnecy sink
-**22nd May - 28th May**:
+### Phase 1 : Time sink and Frequency sink
+[**22nd May - 28th May: TimeSink: Coding week 1**][week2]:
  1. Setup the structure
  2. Work on _time\_sink\_f.py_
  3. Work on _time\_sink\_f\_impl.cc_ and conclude _time\_sink\_f.py_
 
-**29th May - 4th June**:
+[**29th May - 4th June: TimeSink: Coding week 2**][week3]:
  1. Tag display support
  2. Performace evaluation
 
-**5th June - 11th June**:
+[**5th June - 11th June: TimeSink: Coding week 3**][week4]:
  1. Define generation of _top\_block.py_. Change _main_ function if using _gr-bokehgui_.
  2. Complete TimeSink
  3. Add GRC block
 
-**12th June - 18th June**:
+[**12th June - 18th June: TimeSink: Coding week 4**][week5]:
  1. Start Frequency Sink
 
-**19th June - 25th June**:
+[**19th June - 25th June: Frequency Sink: Coding week 1**][week6]:
  1. Complete Frequency Sink
  2. Add GRC block of Frequency Sink
  3. Add GRC example with multiple sinks (at different rates)
@@ -86,3 +86,8 @@ After discussion with mentor, we will be following a timeline as described below
 
 [week0]: /GSoC2017/2017/05/12/introduction.html
 [week1]: /GSoC2017/2017/05/19/planning.html
+[week2]: /GSoC2017/2017/05/26/TimeSink1.html
+[week3]: /GSoC2017/2017/06/02/TimeSink2.html
+[week4]: /GSoC2017/2017/06/09/TimeSink3.html
+[week5]: /GSoC2017/2017/06/16/TimeSink4.html
+[week6]: /GSoC2017/2017/06/23/FreqSink1.html
