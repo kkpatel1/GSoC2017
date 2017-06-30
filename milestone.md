@@ -46,7 +46,7 @@ After discussion with mentor, we will be following a timeline as described below
 
 -------------------------
 ### Phase 2 : Input widgets and Layout
-**26th June - 2nd July**:
+[**26th June - 2nd July: Evaluation week 1**][week7]:
  1. Start working on Textbox and Labels
 
 **3rd July - 9th July**:
@@ -91,3 +91,4 @@ After discussion with mentor, we will be following a timeline as described below
 [week4]: /GSoC2017/2017/06/09/TimeSink3.html
 [week5]: /GSoC2017/2017/06/16/TimeSink4.html
 [week6]: /GSoC2017/2017/06/23/FreqSink1.html
+[week7]: /GSoC2017/2017/06/30/Evaluation1.html
