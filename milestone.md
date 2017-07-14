@@ -49,10 +49,10 @@ After discussion with mentor, we will be following a timeline as described below
 [**26th June - 2nd July: Evaluation week 1**][week7]:
  1. Start working on Textbox and Labels
 
-[**3rd July - 9th July: Widgets 1**][week8]:
+[**3rd July - 9th July: Widgets week 1**][week8]:
  1. Complete work on Textbox and Labels
 
-**10th July - 16th July**:
+[**10th July - 16th July: Widgets week 2**][week9]:
  1. Complete work on Slider and RangeSlider
  2. Setup Layout
 
@@ -93,3 +93,4 @@ After discussion with mentor, we will be following a timeline as described below
 [week6]: /GSoC2017/2017/06/23/FreqSink1.html
 [week7]: /GSoC2017/2017/06/30/Evaluation1.html
 [week8]: /GSoC2017/2017/07/07/Widgets1.html
+[week9]: /GSoC2017/2017/07/14/Widgets2.html
