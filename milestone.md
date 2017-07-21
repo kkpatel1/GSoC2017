@@ -56,7 +56,7 @@ After discussion with mentor, we will be following a timeline as described below
  1. Complete work on Slider and RangeSlider
  2. Setup Layout
 
-[**17th July - 23rd July**][week10]:
+[**17th July - 23rd July: Widgets week 3**][week10]:
  1. Complete working on Layouts
  2. GRC examples with new inputs + multiple sinks in a different layouts
  3. Start working on Waterfall sink (develop a prototype)
