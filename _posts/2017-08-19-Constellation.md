@@ -18,7 +18,7 @@ This week, the implementation of Constellation sink for complex values was compl
 ![Screenshot_Constellation]({{ site.url }}/{{site.baseurl}}/images/Const_Screenshot.jpeg){:width="75%"}
 
 ### To-Do list for next week
-There are mainly 4 tasks for next week
+There are mainly 5 tasks for next week
 1. Do some cleanups and push the required changes in core GRC code to the main GNU Radio repository.
 2. Write in-code documentations. Epescially in the functions which are not obvious to follow. Add a detailed README for the project.
 3. Cleanup the code. Try to update the code with PEP8 guidelines. Cleanup not-so-important variables, reduce the redundancy, change the code structure.
