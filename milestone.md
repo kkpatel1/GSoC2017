@@ -17,7 +17,7 @@ After discussion with mentor, we will be following a timeline as described below
  2. Finalize mechanism of starting the bokeh server and application
  3. Finalize the structure and dataflow of the module
  4. Understanding the Bokeh Library
- 
+
 ---------------------------
 ### Phase 1 : Time sink and Frequency sink
 [**22nd May - 28th May: TimeSink: Coding week 1**][week2]:
@@ -64,22 +64,22 @@ After discussion with mentor, we will be following a timeline as described below
 **24th July - 28th July: Evaluation 2: Input widgets and Layout with Waterfall sink prototype**
 
 -------------------------
-### Phase 3 : Waterfall sink, Histogram sink, Constellation sink and BER sink
-**24th July - 30th July**:
+### Phase 3 : Waterfall sink, <del>Histogram sink</del>, Constellation sink, <del>BER sink</del>
+[**24th July - 30th July**][week11]:
  1. Complete Waterfall sink
 
-**31st July - 6th August**:
- 1. Work on histogram sink
+[**31st July - 6th August**][week12]:
+ 1. <del>Work on histogram sink</del> Continue on Waterfall sink
 
-**7th August - 13th August**:
- 1. Complete histogram sink
- 2. Start working on Constellation display
+[**7th August - 13th August**][week13]:
+ 1. <del>Complete histogram sink</del> Complete on Waterfall sink
+ 2. <del>Start working on Constellation display</del>
 
-**14th August - 20th August**:
+[**14th August - 20th August**][week14]:
  1. Complete constellation display
- 2. Complete BER display
+ 2. <del>Complete BER display</del>
 
-**21st August - 29th August: Final Evaluation: Waterfall, Histrogram, Constellation and BER sink**
+[**21st August - 29th August: Final Evaluation: Waterfall, Constellation sink**][week15]:
  1. Conclude previous works
  2. Submit final evaluation
 
@@ -95,3 +95,8 @@ After discussion with mentor, we will be following a timeline as described below
 [week8]: /GSoC2017/2017/07/07/Widgets1.html
 [week9]: /GSoC2017/2017/07/14/Widgets2.html
 [week10]: /GSoC2017/2017/07/21/Widgets3.html
+[week11]: /GSoC2017/2017/07/27/Evaluation2.html
+[week12]: /GSoC2017/2017/08/03/Waterfall1.html
+[week13]: /GSoC2017/2017/08/11/Waterfall2.html
+[week14]: /GSoC2017/2017/08/19/Constellation.html
+[week15]: /GSoC2017/2017/08/25/Documentation.html
