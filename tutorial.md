@@ -63,18 +63,18 @@ The `5006` is the port on which the Bokeh server is working. `/bokehgui` is the 
 We will shortly see where the session-id comes from.
 
 You should see following output on the screen.<br>
-![Tutorial Output]({{ site.url }}/{{ site.baseurl}}/images/tutorial/tutorial.png){:width="75%"}
+<a href="{{site.url}}{{site.baseurl}}/images/tutorial/tutorial.png" target="_blank">![Tutorial Output]({{ site.url }}/{{ site.baseurl}}/images/tutorial/tutorial.png){:width="75%"}</a>
 
 ## 2. Using the sinks
 First of all, to use Bokeh GUI, we will need to update the properties of the  *Options Block*. Create a new GRC file, double click on *Options Block* update the parameters as shown below:<br>
-![Options block]({{ site.url }}/{{ site.baseurl}}/images/tutorial/options.png)<br>
+<a href="{{site.url}}{{site.baseurl}}/images/tutorial/options.png" target="_blank">![Options block]({{ site.url }}/{{ site.baseurl}}/images/tutorial/options.png)</a><br>
 Major things to note here are following:
 1. **ID**: This ID is generally the name of the Python file to be generated. In Bokeh case, it is also an ID to view the output. The `bokeh-session-id` parameter in the URL takes this value to distinguish the different simulation processes.
 2. **Generate Options**: Make sure you select **Bokeh GUI** in the dropdown menu. It ensures the required program will be added when we build the flowgraph. If you can not find the `Bokeh GUI` option, please make sure you have recent version of the GNU Radio installed.
 3. **Widget Placement**: The *placement* parameters in all Bokeh GUI sink blocks and the *Widget Placement* parameter in here help in re-arranging the items which are going to be displayed. Defining *placement* parameters will be explained later in the tutorial.
 
 Now, let's create a simple flowgraph as follows:<br>
-![Step 1: Create a Flowgraph]({{ site.url }}/{{ site.baseurl}}/images/tutorial/time_sink_fg.png)<br>
+<a href="{{site.url}}{{site.baseurl}}/images/tutorial/time_sink_fg.png" target="_blank">![Step 1: Create a Flowgraph]({{ site.url }}/{{ site.baseurl}}/images/tutorial/time_sink_fg.png)</a><br>
 We see that the Time Sink block has an error in the configuration. Opening the properties, we see that we need to provide the `placement` parameter in order to build the Python file. Let's provide `(1,0)` in `placement` parameter.
 
 To see the output, build, run and open the browser.
@@ -87,7 +87,7 @@ Let's add waterfall sink. Use `(2,0,1,2)` when asked for placement parameter. Si
 Now, let's add widgets. We will add a slider that will control noise power, source frequency, and signal amplitude.
 
 First, find a block called _Bokeh GUI Slider_ from the library. Double click the block to configure as follows:<br>
-![Slider config]({{ site.url }}/{{ site.baseurl}}/images/tutorial/noise_amp_slider.png)<br>
+<a href="{{site.url}}{{site.baseurl}}/images/tutorial/noise_amp_slider.png" target="_blank">![Slider config]({{ site.url }}/{{ site.baseurl}}/images/tutorial/noise_amp_slider.png)</a><br>
 
 The most important parameter to note is **ID**. It defines the variable name. Each time slider updates its value, the variable called `frequency` will be changed. Also, it will call a function `set_frequency` as a callback handler.
 
@@ -96,7 +96,7 @@ Now, to incorporate the appropriate callback functions in `set_frequency` functi
 Similarly, add `noise_amp` and `signal_amp` sliders in the flowgraph. Edit the Signal source and noise source blocks and update it to the appropriate variable instead of exact values in parameter textbox.
 
 After everything is done, you will see the following flowgraph on the screen.<br>
-![Flowgraph]({{ site.url }}/{{ site.baseurl}}/images/tutorial/tutorial.grc.png)<br>
+<a href="{{site.url}}{{site.baseurl}}/images/tutorial/tutorial.grc.png" target="_blank">![Flowgraph]({{ site.url }}/{{ site.baseurl}}/images/tutorial/tutorial.grc.png)</a><br>
 
 The flowgraph is also available at `examples/tutorial.grc`.
 
@@ -110,7 +110,7 @@ First of all, to reduce the effort of arranging the widgets individually, a Widg
 The placement parameters  can have a vector of integers of length 4 of the form `(row, col, rowspan, colspan)`. `(row, col)` is the coordinates of the top-left corner of the element. The `rowspan` and `colspan` correspond to height and width of the element. All values of the row, col, rowspan, and colspan are in terms of the number blocks.
 
 The following figure is an example of the grid, the placements of various elements inside the grid for the given value of parameters. <br>
-![GridPlot Example]({{ site.url }}/{{ site.baseurl }}/images/GridPlot.png){:width ="75%"}
+<a href="{{site.url}}{{site.baseurl}}/images/GridPlot.png" target="_blank">![GridPlot Example]({{ site.url }}/{{ site.baseurl }}/images/GridPlot.png){:width ="75%"}</a>
 
 Note that the indexing starts from 0. The maximum values of column and row are calculated automatically based on the maximum possible requirement to place all the elements. Also, please note that, if `rowspan` and `colspan` are not defined, they will be assumed to be 1.
 
