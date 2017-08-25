@@ -119,9 +119,8 @@ The placement for Widgetbox can be updated in the **Options** block. The placeme
 ----------------
 This concludes the tutorial for `gr-bokehgui` module. All primary features of the module are explained here.
 
-<!--The following screencast covers the tutorial.<br>-->
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/0LNlwYrcjps" frameborder="0" allowfullscreen></iframe><br>
--->
+The following screencast covers the tutorial.<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EyNOE9icNVc" frameborder="0" allowfullscreen></iframe><br>
 
 For suggestions/queries/comments on the module and the tutorial, kindly drop a mail to [`discuss-gnuradio`][discussion_forum].
 
